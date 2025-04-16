@@ -127,7 +127,7 @@ curl -k -X POST https://localhost:5000/ -H "Content-Type: application/json" -d "
 Der Parameter `-k` ignoriert SSL-Zertifikatswarnungen bei selbstsignierten Zertifikaten.
 
 ### 6.3 Beispiel mit Postman
-- Rufen Sie die Website: `https://www.postman.com/` auf
+- Rufen Sie die Website: [www.postman.com](https://www.postman.com/) auf
 - New Request
 - POST - URL
 - Navigieren Sie zu `Body` und `raw`
