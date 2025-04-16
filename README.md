@@ -217,15 +217,16 @@ Passen Sie zusätzlich die URL in `Llama\app\src\main\res\xml\network_security_c
 ## 10. Starten der Android-App
 Nutzen Sie den integrierten Emulator oder nutzen Sie die Option "USB-Debugging"(empfohlen, da Emulator nicht sehr leistungsfähig ist)
 
-Für USB-Debugging: - Gehen Sie bei Ihrem Android-Gerät in das Einstellungsmenü
-                   - Suchen sie die Buildnummer des Gerätes (geht auch über Suchfunktion)
-                   - Tippen Sie siebenmal auf die Buildnummer, um den Entwicklermodus zu starten
-                   - Navigieren Sie im Einstellungsmenü Ihres Android-Geräts zu den neu erschienenen Entwickleroptionen
-                   - Aktivieren Sie "USB-Debugging", dann "OK"
-                   - Verbinden Sie ihr Android-Gerät mit Ihrem Computer per USB
-                   - Das Android-Gerät sollte nun in Android-Studio erkannt werden
-                   - Starten Sie die Anwendung mit ausgewählter Option
-                   - Erstmaliges "Launching on Device" kann etwas Zeit in Anspruch nehmen (1-2min)
+Für USB-Debugging: 
+- Gehen Sie bei Ihrem Android-Gerät in das Einstellungsmenü
+- Suchen sie die Buildnummer des Gerätes (geht auch über Suchfunktion)
+- Tippen Sie siebenmal auf die Buildnummer, um den Entwicklermodus zu starten
+- Navigieren Sie im Einstellungsmenü Ihres Android-Geräts zu den neu erschienenen Entwickleroptionen
+- Aktivieren Sie "USB-Debugging", dann "OK"
+- Verbinden Sie ihr Android-Gerät mit Ihrem Computer per USB
+- Das Android-Gerät sollte nun in Android-Studio erkannt werden
+- Starten Sie die Anwendung mit ausgewählter Option
+- Erstmaliges "Launching on Device" kann etwas Zeit in Anspruch nehmen (1-2min)
 
 Achtung: Die Android-App erzeugt nur Ausgaben, wenn der Backend-Server läuft. Bitte stellen Sie also sicher, dass der Server aktiv ist, bevor Sie die App nutzen..
 
