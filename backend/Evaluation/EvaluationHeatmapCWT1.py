@@ -66,7 +66,7 @@ fig = go.Figure(data=go.Heatmap(
 
 # Layout anpassen
 fig.update_layout(
-    title="Cognitive Walkthrough Evaluation - Heatmap",
+    title="Qualitative Anaylse - Heatmap",
     xaxis=dict(
         title="Szenarien",
         tickfont=dict(size=12)

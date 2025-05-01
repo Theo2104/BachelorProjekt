@@ -841,6 +841,59 @@
         historyContainer.appendChild(historyItem);
       });
     }
+
+    // Funktion zum Exportieren der kompletten HTML-Seite als PDF
+function exportCompleteToPDF() {
+  // Zeige Lade-Indikator
+  const loadingIndicator = document.createElement('div');
+  loadingIndicator.innerHTML = 'PDF wird erstellt...';
+  loadingIndicator.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);color:white;display:flex;justify-content:center;align-items:center;z-index:9999;font-size:24px;';
+  document.body.appendChild(loadingIndicator);
+
+  // Warte kurz, damit der Lade-Indikator angezeigt wird
+  setTimeout(() => {
+    const { jsPDF } = window.jspdf;
+    
+    // Gesamte Seite als Canvas rendern
+    html2canvas(document.body, {
+      scale: 2, // Bessere Qualität
+      useCORS: true,
+      allowTaint: true,
+      scrollY: 0
+    }).then(canvas => {
+      // Canvas-Maße
+      const imgData = canvas.toDataURL('image/png');
+      const imgWidth = 210; // A4 Breite in mm
+      const pageHeight = 297; // A4 Höhe in mm
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      
+      // PDF erstellen
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      let heightLeft = imgHeight;
+      let position = 0;
+      
+      // Erste Seite
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      
+      // Zusätzliche Seiten, falls nötig
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      
+      // PDF speichern und Lade-Indikator entfernen
+      pdf.save('cognitive_walkthrough_export.pdf');
+      document.body.removeChild(loadingIndicator);
+    });
+  }, 100);
+}
+
+// Event-Handler zum Export-Button hinzufügen
+document.getElementById('export-pdf-btn').removeEventListener('click', window.exportPDF);
+document.getElementById('export-pdf-btn').addEventListener('click', exportCompleteToPDF);
       
     function loadEvaluation(evaluation) {
       // Szenario setzen
